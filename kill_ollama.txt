@@ -1,0 +1,6 @@
+killall Ollama
+rm -rf /Applications/Ollama.app
+rm -rf ~/.ollama
+brew uninstall ollama  # if you used Homebrew
+rm -rf ~/Library/Preferences/com.ollama.*
+rm -rf ~/Library/Application\ Support/Ollama

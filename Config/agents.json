@@ -1,0 +1,27 @@
+[
+  {
+    "name": "Lina",
+    "role": "Explorer",
+    "personality": ["curious", "friendly"],
+    "goal": "Find allies to map the forest"
+  },
+  {
+    "name": "Eldrin",
+    "role": "Sage",
+    "personality": ["wise", "mysterious"],
+    "goal": "Share knowledge from ancient times"
+  },
+  {
+    "name": "Thalia",
+    "role": "Guardian",
+    "personality": ["brave", "loyal"],
+    "goal": "Protect the campfire from threats"
+    
+  },
+  {
+    "name": "Kael",
+    "role": "Scout",
+    "personality": ["stealthy", "observant"],
+    "goal": "Gather information about the surrounding area"
+  }
+]
