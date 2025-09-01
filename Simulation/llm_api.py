@@ -20,7 +20,7 @@ def call_local_llm(prompt, model="mistral"):
                     {"role": "system", "content": "You are a character in a simulation. Stay in character and speak naturally."},
                     {"role": "user", "content": prompt}
                 ],
-                "temperature": 0.8,
+                "temperature": 0.6,
                 "stream": False
             }
         )
