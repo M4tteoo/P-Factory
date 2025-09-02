@@ -3,8 +3,12 @@ You are an AI actor playing the role of a character in a simulation.
 
 == YOUR CHARACTER ==
 Name: {name}
+Role: {role}
 Personality: {personality}
 Current Goal: {goal}
+Backstory: {backstory}                 
+Current Internal State: {current_state} 
+Relationships with Others: {relationships} 
 
 == THE SCENE ==
 Location: {scene_description}
@@ -22,7 +26,7 @@ Was the last statement a question directed at you or the group? {is_last_a_quest
 {personal_memories}
 
 == YOUR TASK ==
-Based on your character, goal, and the current situation, you have been prompted to speak. Formulate your response.
+Based on your character (including your backstory, current state, and relationships), goal, and the current situation, you have been prompted to speak. Formulate your response.
 If the last statement was a direct question directed at you or the group, your first priority is to answer it, even if it means momentarily deferring your personal goal. Otherwise, proceed with your goal or react naturally to the conversation.
 You MUST respond with a JSON object with two keys: "thought" and "dialogue".
 •⁠  ⁠"thought": A brief, private thought about your reasoning. This will become a memory.
@@ -33,6 +37,21 @@ You MUST respond with a JSON object with two keys: "thought" and "dialogue".
 {{
     "thought": "Lina asked about mapping, and it aligns with my explorer nature. I should agree to help.",
     "dialogue": "That's a fantastic idea, Lina! I'd be happy to help you map this intriguing forest."
+}}
+
+{{
+    "thought": "The recent growl sounds concerning. I need to express my vigilance and ensure the group prioritizes safety, perhaps reminding them of my protective role.",
+    "dialogue": "That growl serves as a stark reminder of the dangers lurking beyond the firelight. We must remain vigilant. Who will join me in keeping a close watch on our perimeter?"
+}}
+
+{{
+    "thought": "Kael seems observant but reserved. I should try to engage him directly to draw out any information he might have about the area, as it could aid my mapping goal.",
+    "dialogue": "Kael, you've been quiet, but your gaze misses nothing. Have you noticed anything unusual in the surrounding woods that might be of interest to an explorer?"
+}}
+
+{{
+    "thought": "Eldrin's tales of ancient lore intrigue me. I should encourage him to share more, as it could provide valuable context for understanding this forest.",
+    "dialogue": "Eldrin, your wisdom is a beacon in this wilderness. Please, tell us more of the ancient tales you mentioned. They could be invaluable to our journey."
 }}
 
 == YOUR RESPONSE (JSON ONLY) ==
@@ -68,10 +87,16 @@ def build_agent_prompt(agent, world_state, all_agents, public_memories, personal
         else: # If the agent itself spoke last, summarize the topic
             last_dialogue_summary = f"The last topic was: '{last_text}'"
 
+    relationships_str = "\n".join([f"  - {k}: {v}" for k, v in agent.relationships.items()])
+
     prompt = AGENT_PROMPT_TEMPLATE.format(
         name=agent.name,
+        role=agent.role,
         personality=", ".join(agent.personality),
         goal=agent.goal,
+        backstory=agent.backstory,        
+        current_state=agent.current_state, 
+        relationships=relationships_str, 
         scene_description=world_state.get_scene_summary(),
         other_agents=", ".join(other_agents) if other_agents else "no one else",
         recent_dialogue=dialogue_str,
@@ -149,6 +174,19 @@ Possible commands for the "action" key:
         "command": "NARRATE_ONLY",
         "narration": "From the shadowy depths of the forest, a low, guttural growl echoes, sending shivers down everyone's spines."
     }}
+}}
+
+== EXAMPLE of a BAD RESPONSE (Do NOT do this!) ==
+
+**Reason for being BAD:** The 'narration' field *incorrectly includes character dialogue*. The DM should only provide scene-setting, and the activated agent generates its own dialogue.
+
+{{
+    "thought": "The conversation has been going well, but it's time to introduce some tension and advance the plot. Lina might have a question about the forest that could lead to an interesting response from Eldrin.",
+    "action": {{
+        "command": "ACTIVATE_AGENT",
+        "agent_name": "Lina"
+    }},
+    "narration": "Lina, curious as ever, breaks the silence: 'Eldrin, have you ever heard of any hidden passageways within this forest?'"
 }}
 
 == YOUR RESPONSE (JSON ONLY) ==

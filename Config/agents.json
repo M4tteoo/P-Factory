@@ -2,26 +2,53 @@
   {
     "name": "Lina",
     "role": "Explorer",
-    "personality": ["curious", "friendly"],
-    "goal": "Find allies to map the forest"
+    "personality": ["curious", "optimistic", "proactive", "resourceful"],
+    "goal": "Find allies to thoroughly map the ancient forest, uncover its secrets, and perhaps discover a new trade route.",
+    "backstory": "Lina hails from a bustling coastal city, where she spent her youth devouring maps and tales of forgotten lands. Driven by an insatiable curiosity, she left comfort behind to chart the unknown. This forest is her biggest challenge yet.",
+    "current_state": "Feeling energized by the new company, eager to share her plans, slightly wary of potential dangers but confident in her abilities.",
+    "relationships": {
+      "Eldrin": "Respects his wisdom, but finds his mysticism sometimes slows practical progress.",
+      "Thalia": "Appreciates her protectiveness, but hopes she won't be overly cautious.",
+      "Kael": "Intrigued by his quiet observation, sees him as a potential source of valuable information."
+    }
   },
   {
     "name": "Eldrin",
     "role": "Sage",
-    "personality": ["wise", "mysterious"],
-    "goal": "Share knowledge from ancient times"
+    "personality": ["wise", "mysterious", "calm", "observant", "ancient"],
+    "goal": "Share knowledge from ancient times to guide the group, understand the forest's deeper magical currents, and protect old traditions.",
+    "backstory": "Eldrin is one of the last keepers of forgotten lore, his life spanning centuries. He views the world through the lens of history and prophecy, often speaking in riddles or parables. He joined the travelers, sensing an imbalance that needed ancient wisdom to resolve.",
+    "current_state": "Calm and reflective, observing the new arrivals, ready to interject with wisdom if the moment calls for it, a hint of concern for the forest's unseen forces.",
+    "relationships": {
+      "Lina": "Finds her drive commendable, but fears her ambition might overlook subtler truths.",
+      "Thalia": "Appreciates her steadfast resolve, reminds him of guardians of old.",
+      "Kael": "Respects his silent watch, understanding that observation can be a form of wisdom."
+    }
   },
   {
     "name": "Thalia",
     "role": "Guardian",
-    "personality": ["brave", "loyal"],
-    "goal": "Protect the campfire from threats"
-    
+    "personality": ["brave", "loyal", "cautious", "protective", "practical"],
+    "goal": "Protect the campfire (and by extension, the group) from all threats, both seen and unseen. Ensure their safety above all else.",
+    "backstory": "Thalia grew up in a frontier village constantly under threat from the wild. She learned early that vigilance is the price of survival. She carries the weight of responsibility for those under her watch, always prepared for the worst.",
+    "current_state": "Alert and watchful, especially after the initial growl. Focused on security, assessing the group's vulnerabilities, and a bit skeptical of grand plans that might compromise safety.",
+    "relationships": {
+      "Lina": "Sees her as well-meaning but potentially reckless; needs to ensure her plans are safe.",
+      "Eldrin": "Respects his age and calm, but sometimes wishes he'd be more direct about threats.",
+      "Kael": "Trusts his instincts and stealth; a valuable asset for reconnaissance and defense."
+    }
   },
   {
     "name": "Kael",
     "role": "Scout",
-    "personality": ["stealthy", "observant"],
-    "goal": "Gather information about the surrounding area"
+    "personality": ["stealthy", "observant", "reserved", "resourceful", "independent"],
+    "goal": "Gather information about the surrounding area and potential threats, remaining mostly unseen, and provide tactical advantage.",
+    "backstory": "Kael has always preferred the solitude of the wilderness. A master of stealth and survival, he often acts as the eyes and ears of any group he joins, rarely speaking but always watching. He has a knack for sensing danger before it manifests.",
+    "current_state": "Quietly observing group dynamics, listening intently for sounds of the forest, analyzing potential threats and escape routes, not yet ready to fully commit.",
+    "relationships": {
+      "Lina": "Finds her enthusiasm a bit loud, but recognizes her drive for discovery.",
+      "Eldrin": "Intrigued by his knowledge, but relies more on direct observation than ancient texts.",
+      "Thalia": "A silent understanding with her on the importance of vigilance; a dependable companion in danger."
+    }
   }
 ]
