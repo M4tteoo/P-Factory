@@ -47,14 +47,8 @@ Its recommended to use a virtual environment:
 `source .venv/bin/activate # On Windows: .venv\Scripts\activate`
 `pip install -r requirements.txt`
 
-### 4. Create requirements.txt
-In your project root, create a file named requirements.txt with the following content:
-requests
-streamlit
-chromadb
-sentence-transformers
 
-### 5. Run the Streamlit UI
+### 4. Run the Streamlit UI
 Once all dependencies are installed and Ollama is running with a model, start the Streamlit application:
 `streamlit run UI.py`
 This will open the simulation in your web browser.
